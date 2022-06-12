@@ -22,7 +22,7 @@ let allowCrossDomain = (req, res, next) => {
   }
   next();
 };
-app.use(allowCrossDomain);
+// app.use(allowCrossDomain);
 const PORT = process.env.PORT_NO ?? 8080;
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
