@@ -26,7 +26,18 @@ let allowCrossDomain = (req, res, next) => {
 // app.use(allowCrossDomain);
 const PORT =8080;
 // view engine setup
-app.use(cors())
+const whitelist = ["http://localhost:3000"]
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error("Not allowed by CORS"))
+    }
+  },
+  credentials: true,
+}
+app.use(cors(corsOptions))
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
