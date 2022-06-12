@@ -23,7 +23,7 @@ let allowCrossDomain = (req, res, next) => {
   next();
 };
 // app.use(allowCrossDomain);
-const PORT = process.env.PORT_NO ?? 8080;
+const PORT =8080;
 // view engine setup
 app.use(cors())
 app.set("views", path.join(__dirname, "views"));
