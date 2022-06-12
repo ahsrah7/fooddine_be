@@ -4,7 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mongoDb = require("./mongodb");
-
+import cors from 'cors';
 var app = express();
 
 let allowCrossDomain = (req, res, next) => {
@@ -25,6 +25,7 @@ let allowCrossDomain = (req, res, next) => {
 // app.use(allowCrossDomain);
 const PORT = process.env.PORT_NO ?? 8080;
 // view engine setup
+app.use(cors())
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
